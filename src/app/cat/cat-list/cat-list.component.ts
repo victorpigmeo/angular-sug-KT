@@ -9,12 +9,14 @@ import {Cat} from '../../model/cat.model';
 })
 export class CatListComponent implements OnInit {
 
+  public catList: Array<Cat>;
+
   constructor(private catService: CatService) { }
 
   ngOnInit(): void {
     this.catService.listCats()
-      .then((catList: Array<Cat>) => {
-        console.log(catList);
+      .then((catListFromDb: Array<Cat>) => {
+        this.catList = catListFromDb;
       })
       .catch(e => console.error(e));
   }
