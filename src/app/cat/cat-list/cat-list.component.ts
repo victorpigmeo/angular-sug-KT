@@ -11,7 +11,17 @@ export class CatListComponent implements OnInit {
 
   public catList: Array<Cat>;
 
-  constructor(private catService: CatService) { }
+  constructor(private catService: CatService) {
+    this.catService.catDeletedEvent.subscribe((deletedCat: Cat) => {
+      this.catList = this.catList.filter((cat: Cat) => {
+        if (cat._id === deletedCat._id){
+          return false;
+        }else{
+          return true;
+        }
+      });
+    });
+  }
 
   ngOnInit(): void {
     this.catService.listCats()

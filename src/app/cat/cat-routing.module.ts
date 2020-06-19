@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path: 'add',
         component: CatFormComponent
+      },
+      {
+        path: 'edit/:id',
+        component: CatFormComponent
       }
     ]
   }

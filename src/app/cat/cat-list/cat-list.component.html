@@ -1,21 +1,9 @@
 <button [routerLink]="['add']">Add</button>
 
 <table>
-  <thead>
-    <th>Name</th>
-    <th>Age</th>
-    <th>Breed</th>
-    <th>Favorite Toy</th>
-    <th>Actions</th>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let cat of catList">
-      <td>{{cat.name}}</td>
-      <td>{{cat.age}}</td>
-      <td>{{cat.breed}}</td>
-      <td>{{cat.favoriteToy}}</td>
-      <td></td>
-    </tr>
-  </tbody>
+  <ul>
+    <li *ngFor="let cat of catList">
+      <app-cat-row [cat]="cat"></app-cat-row>
+    </li>
+  </ul>
 </table>
